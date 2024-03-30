@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import ErrorContainer from '../../elements/ErrorContainer/ErrorContainer';
+import InputTitle from '../../elements/InputTitle/InputTitle';
 import '../../palette.css';
 import { addComma } from '../../utils';
 import './PriceInput.css';
@@ -7,6 +9,9 @@ const PriceInput = ({ value, onChange }) => {
   const priceInputStyle = value === '' ? 'priceInput priceInputError' : 'priceInput';
   const [isInputFocused, setIsInputFocused] = useState(false);
   const handleAddComma = (value) => {
+    if (value === '') {
+      return '';
+    }
     if (value.includes('.')) {
       const [integer, decimal] = value.split('.');
       return addComma(integer) + '.' + decimal;
@@ -16,7 +21,7 @@ const PriceInput = ({ value, onChange }) => {
 
   return (
     <>
-      <div className="priceInputTitle">入住費用（每人每晚）</div>
+      <InputTitle title="入住費用（每人每晚）" />
       <div className="priceInputContainer">
         <div className="priceInputCurrencyContainer">
           <div className="priceInputCurrency">TWD</div>
@@ -33,11 +38,7 @@ const PriceInput = ({ value, onChange }) => {
           step="0.1"
         />
       </div>
-      {value === '' ? (
-        <div className="errorContainer">
-          <div className="errorText">不可為空白</div>
-        </div>
-      ) : null}
+      {value === '' ? <ErrorContainer errorText="不可為空白" /> : null}
 
       <div className="alertContainer">
         <div className="alertText">輸入 0 表示免費</div>
