@@ -1,13 +1,15 @@
 import './App.css';
 import logo from './logo.svg';
 import { getNumberIntervals } from './utils';
-
 function App() {
-  getNumberIntervals([
-    [1, 10],
-    [3, 6],
-    [5, 6],
+  const { overlap, notInclude } = getNumberIntervals([
+    [6, 11],
+    [5, 8],
+    [17, 20],
+    [7, 7],
+    [14, 17],
   ]);
+  console.log(overlap, notInclude);
   return (
     <div className="App">
       <header className="App-header">
