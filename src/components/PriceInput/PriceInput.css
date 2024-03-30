@@ -1,0 +1,79 @@
+.priceInputTitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-gray);
+  margin-bottom: 4px;
+}
+
+.priceInputContainer {
+  display: flex;
+  width: 400px;
+  height: 56px;
+  border-radius: 7px;
+}
+
+.priceInputCurrencyContainer {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-gray-light);
+  padding: 0 8px;
+  border-radius: 5px 0px 0px 5px;
+  border-bottom: 1px solid var(--color-gray);
+  border-left: 1px solid var(--color-gray);
+  border-top: 1px solid var(--color-gray);
+}
+
+.priceInputCurrency {
+  font-size: 16px;
+  color: var(--color-gray);
+}
+
+.priceInput {
+  flex: 1;
+  font-size: 16px;
+  padding: 0 8px;
+  border: 1px solid var(--color-gray);
+  border-radius: 0px 5px 5px 0px;
+}
+
+.priceInputError {
+  border: 1px solid var(--color-alert-red);
+}
+
+.priceInput::placeholder {
+  color: var(--color-gray-light);
+}
+
+.priceInput:focus {
+  outline: none;
+}
+
+.errorContainer {
+  width: 400px;
+  height: 30px;
+  background-color: var(--color-alert-light-red);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.errorText {
+  color: var(--color-alert-red);
+  font-size: 14px;
+  padding: 0px 0px 0px 8px;
+}
+
+.alertContainer {
+  width: 400px;
+  height: 20px;
+  background-color: var(--color-alert-light-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.alertText {
+  color: var(--color-gray);
+  font-size: 14px;
+  font-weight: 400;
+}
