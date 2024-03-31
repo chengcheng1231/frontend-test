@@ -8,14 +8,14 @@ const AgeGroupSelect = ({ ageGroup, setAgeGroup, isOverlap }) => {
   const [startRange, setStartRange] = useState([0, ageGroup[1]]);
   const [endRange, setEndRange] = useState([ageGroup[0], 20]);
 
-  const handleStartChange = (e) => {
-    setAgeGroup([Number(e.target.value), ageGroup[1]]);
-    setEndRange([Number(e.target.value), 20]);
+  const handleStartChange = (updateStartAge) => {
+    setAgeGroup([Number(updateStartAge), ageGroup[1]]);
+    setEndRange([Number(updateStartAge), 20]);
   };
 
-  const handleEndChange = (e) => {
-    setAgeGroup([ageGroup[0], Number(e.target.value)]);
-    setStartRange([0, Number(e.target.value)]);
+  const handleEndChange = (updateEndAge) => {
+    setAgeGroup([ageGroup[0], Number(updateEndAge)]);
+    setStartRange([0, Number(updateEndAge)]);
   };
 
   const generateStartRange = () => {
@@ -49,7 +49,7 @@ const AgeGroupSelect = ({ ageGroup, setAgeGroup, isOverlap }) => {
         <select
           key={'start'}
           value={ageGroup[0]}
-          onChange={handleStartChange}
+          onChange={(e) => handleStartChange(e.target.value)}
           className={'ageSelect ageSelectStart' + (isOverlap ? ' ageSelectError' : '')}
           style={{ dropdownIndicator: { display: 'none' } }}
         >
@@ -59,7 +59,7 @@ const AgeGroupSelect = ({ ageGroup, setAgeGroup, isOverlap }) => {
         <select
           key={'end'}
           value={ageGroup[1]}
-          onChange={handleEndChange}
+          onChange={(e) => handleEndChange(e.target.value)}
           className={'ageSelect ageSelectEnd' + (isOverlap ? ' ageSelectError' : '')}
         >
           {generateEndRange()}

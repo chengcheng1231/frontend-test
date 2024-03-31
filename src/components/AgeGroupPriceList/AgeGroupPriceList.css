@@ -13,12 +13,15 @@
   font-size: 18px;
   font-weight: 600;
   margin: 12px 0;
-  font-family: math;
 }
 
 .ageGroupPriceListInputContainer {
   display: flex;
   gap: 20px;
+}
+
+.ageGroupPriceListPortion {
+  flex: 1;
 }
 
 .groupSeparator {
@@ -84,11 +87,19 @@
   width: 100%;
 }
 
+.disabledAddGroupContainer {
+  cursor: not-allowed;
+}
+
 .addGroupButton {
   display: flex;
   border: none;
   color: var(--color-primary);
   font-weight: 600;
+}
+
+.disabledAddGroupButton {
+  opacity: 0.5;
 }
 
 .addGroupPlus {
@@ -116,4 +127,9 @@
 
 .addGroupPlus::after {
   transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.disabledAddGroupPlus::before,
+.disabledAddGroupPlus::after {
+  opacity: 0.5;
 }

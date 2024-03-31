@@ -1,33 +1,35 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import AgeGroupSelect from '../AgeGroupSelect/AgeGroupSelect';
 import PriceInput from '../PriceInput/PriceInput';
 import './AgeGroupPriceList.css';
 
-const AgeGroupPriceList = ({ result, onChange, isOverlap }) => {
+const AgeGroupPriceList = ({ result, onChange, isOverlap, isIncludeAllAges }) => {
   const handleAddGroupClick = () => {
-    onChange([...result, { id: result.length + 1, ageGroup: [0, 20], price: 0 }]);
+    if (isIncludeAllAges) return;
+    onChange([...result, { id: uuidv4(), ageGroup: [0, 20], price: 0 }]);
   };
 
   const handleRemoveGroupClick = (id) => {
     onChange(result.filter((item) => item.id !== id));
   };
 
-  const handleAgeGroupChange = (id, e) => {
+  const handleAgeGroupChange = (id, updateAgeGroup) => {
     onChange(
       result.map((item) => {
         if (item.id === id) {
-          return { ...item, ageGroup: e };
+          return { ...item, ageGroup: updateAgeGroup };
         }
         return item;
       })
     );
   };
 
-  const handlePriceChange = (id, e) => {
+  const handlePriceChange = (id, updatePrice) => {
     onChange(
       result.map((item) => {
         if (item.id === id) {
-          return { ...item, price: e.target.value === '' ? '' : Number(e.target.value) };
+          return { ...item, price: updatePrice === '' ? '' : Number(updatePrice) };
         }
         return item;
       })
@@ -48,24 +50,29 @@ const AgeGroupPriceList = ({ result, onChange, isOverlap }) => {
             )}
           </div>
           <div className="ageGroupPriceListInputContainer">
-            <div style={{ flex: 1 }}>
+            <div className="ageGroupPriceListPortion">
               <AgeGroupSelect
                 isOverlap={isOverlap}
                 ageGroup={item.ageGroup}
-                setAgeGroup={(e) => handleAgeGroupChange(item.id, e)}
+                setAgeGroup={(updateAgeGroup) => handleAgeGroupChange(item.id, updateAgeGroup)}
               />
             </div>
-            <div style={{ flex: 1 }}>
-              <PriceInput onChange={(e) => handlePriceChange(item.id, e)} value={item.price} />
+            <div className="ageGroupPriceListPortion">
+              <PriceInput onChange={(updatePrice) => handlePriceChange(item.id, updatePrice)} value={item.price} />
             </div>
           </div>
           {result.length - 1 !== index && <div className="groupSeparator" />}
         </div>
       ))}
       <div className="addGroupOuterContainer">
-        <div className="addGroupContainer" onClick={() => handleAddGroupClick()}>
-          <div className="addGroupPlus" />
-          <div className="addGroupButton">新增價格設定</div>
+        <div
+          className={isIncludeAllAges ? 'addGroupContainer disabledAddGroupContainer' : 'addGroupContainer'}
+          onClick={() => handleAddGroupClick()}
+        >
+          <div className={isIncludeAllAges ? 'addGroupPlus disabledAddGroupPlus' : 'addGroupPlus'} />
+          <div className={isIncludeAllAges ? 'addGroupButton disabledAddGroupButton' : 'addGroupButton'}>
+            新增價格設定
+          </div>
         </div>
       </div>
     </div>

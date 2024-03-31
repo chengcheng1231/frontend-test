@@ -21,7 +21,7 @@ const PriceInput = ({ value, onChange }) => {
   };
 
   return (
-    <div style={{ flex: 1 }}>
+    <div>
       <InputTitle title="入住費用（每人每晚）" />
       <div className="priceInputContainer">
         <div className="priceInputCurrencyContainer">
@@ -30,17 +30,24 @@ const PriceInput = ({ value, onChange }) => {
         <input
           type={isInputFocused ? 'number' : 'text'}
           value={isInputFocused ? value : handleAddComma(value)}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
           className={priceInputStyle}
           onFocus={() => setIsInputFocused(true)}
           onBlur={() => setIsInputFocused(false)}
           placeholder="請輸入費用"
           min="0"
           step="0.1"
+          onKeyDown={(e) => {
+            if (e.key === 'e' || e.key === '-' || e.key === '+') {
+              e.preventDefault();
+            }
+            if (e.key === 'Enter') {
+              e.target.blur();
+            }
+          }}
         />
       </div>
       {value === '' ? <ErrorContainer errorText="不可為空白" /> : null}
-
       <div className="alertContainer">
         <div className="alertText">輸入 0 表示免費</div>
       </div>
