@@ -3,7 +3,7 @@ import AgeGroupSelect from '../AgeGroupSelect/AgeGroupSelect';
 import PriceInput from '../PriceInput/PriceInput';
 import './AgeGroupPriceList.css';
 
-const AgeGroupPriceList = ({ result, onChange }) => {
+const AgeGroupPriceList = ({ result, onChange, isOverlap }) => {
   const handleAddGroupClick = () => {
     onChange([...result, { id: result.length + 1, ageGroup: [0, 20], price: 0 }]);
   };
@@ -50,7 +50,7 @@ const AgeGroupPriceList = ({ result, onChange }) => {
           <div className="ageGroupPriceListInputContainer">
             <div style={{ flex: 1 }}>
               <AgeGroupSelect
-                isOverlap={false}
+                isOverlap={isOverlap}
                 ageGroup={item.ageGroup}
                 setAgeGroup={(e) => handleAgeGroupChange(item.id, e)}
               />
