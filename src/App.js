@@ -5,6 +5,7 @@ import AgeGroupPriceList from './components/AgeGroupPriceList/AgeGroupPriceList'
 import { getNumberIntervals } from './utils';
 
 function App() {
+  // Initial state
   const [result, setResult] = useState([{ id: uuidv4(), ageGroup: [0, 20], price: 0 }]);
 
   // To check if there is an overlap in the age group
