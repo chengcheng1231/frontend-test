@@ -6,8 +6,8 @@ function App() {
   // const [value, setValue] = useState('0');
   // const [ageGroup, setAgeGroup] = useState([7, 17]);
   const [result, setResult] = useState([
-    { ageGroup: [7, 16], price: 999.99 },
-    { ageGroup: [0, 0], price: 0 },
+    { id: 1, ageGroup: [7, 16], price: 9999.99 },
+    { id: 2, ageGroup: [0, 20], price: 200 },
   ]);
   return (
     <div>

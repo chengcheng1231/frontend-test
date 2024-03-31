@@ -12,11 +12,12 @@ const PriceInput = ({ value, onChange }) => {
     if (value === '') {
       return '';
     }
-    if (value.includes('.')) {
-      const [integer, decimal] = value.split('.');
+
+    if (String(value).includes('.')) {
+      const [integer, decimal] = String(value).split('.');
       return addComma(integer) + '.' + decimal;
     }
-    return addComma(value);
+    return addComma(String(value));
   };
 
   return (
