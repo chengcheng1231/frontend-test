@@ -1,27 +1,25 @@
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
-import logo from './logo.svg';
+import AgeGroupPriceList from './components/AgeGroupPriceList/AgeGroupPriceList';
 import { getNumberIntervals } from './utils';
+
 function App() {
-  const { overlap, notInclude } = getNumberIntervals([
-    [6, 11],
-    [5, 8],
-    [17, 20],
-    [7, 7],
-    [14, 17],
-  ]);
-  console.log(overlap, notInclude);
+  // Initial state
+  const [result, setResult] = useState([{ id: uuidv4(), ageGroup: [0, 20], price: 0 }]);
+
+  // To check if there is an overlap in the age group
+  const { overlap, notInclude } = getNumberIntervals(result.map((item) => item.ageGroup));
+  const isIncludeAllAges = notInclude.length === 0;
+  const isOverlap = overlap.length > 0;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AgeGroupPriceList
+      result={result}
+      onChange={(updateData) => setResult(updateData)}
+      isOverlap={isOverlap}
+      isIncludeAllAges={isIncludeAllAges}
+    />
   );
 }
 

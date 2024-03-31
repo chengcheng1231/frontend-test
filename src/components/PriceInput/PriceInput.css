@@ -1,0 +1,55 @@
+.priceInputContainer {
+  display: flex;
+  height: 56px;
+  border-radius: 7px;
+}
+
+.priceInputCurrencyContainer {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-gray-light);
+  padding: 0 8px;
+  border-radius: 5px 0px 0px 5px;
+  border-bottom: 1px solid var(--color-gray);
+  border-left: 1px solid var(--color-gray);
+  border-top: 1px solid var(--color-gray);
+}
+
+.priceInputCurrency {
+  font-size: 16px;
+  color: var(--color-gray);
+}
+
+.priceInput {
+  flex: 1;
+  font-size: 16px;
+  padding: 0 8px;
+  border: 1px solid var(--color-gray);
+  border-radius: 0px 5px 5px 0px;
+}
+
+.priceInputError {
+  border: 1px solid var(--color-alert-red);
+}
+
+.priceInput::placeholder {
+  color: var(--color-gray-light);
+}
+
+.priceInput:focus {
+  outline: none;
+}
+
+.alertContainer {
+  height: 20px;
+  background-color: var(--color-alert-light-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.alertText {
+  color: var(--color-gray);
+  font-size: 14px;
+  font-weight: 400;
+}

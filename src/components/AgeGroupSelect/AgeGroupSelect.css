@@ -1,0 +1,36 @@
+.ageSelectContainer {
+  height: 56px;
+  display: flex;
+  background-color: var(--color-gray-light);
+  border-radius: 7px;
+}
+
+.separator {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--color-gray);
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.ageSelect {
+  flex: 1;
+  border: 1px solid var(--color-gray);
+}
+
+.ageSelect:focus {
+  outline: none;
+}
+
+.ageSelectError {
+  border: 1px solid var(--color-alert-red);
+}
+
+.ageSelectStart {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.ageSelectEnd {
+  border-radius: 0px 5px 5px 0px;
+}
