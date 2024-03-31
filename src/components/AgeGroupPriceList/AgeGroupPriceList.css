@@ -1,0 +1,113 @@
+.ageGroupPriceListContainer {
+  width: 800px;
+}
+
+.groupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ageGroupPriceListTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 12px 0;
+  font-family: math;
+}
+
+.ageGroupPriceListInputContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.groupSeparator {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-gray-light);
+  margin-top: 30px;
+}
+
+.deleteGroupContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.deleteGroupClose {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+
+.deleteGroupClose::before,
+.deleteGroupClose::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: var(--color-alert-red);
+  transform: translate(-50%, -50%);
+}
+
+.deleteGroupClose::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.deleteGroupClose::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.deleteGroupButton {
+  display: flex;
+  border: none;
+  color: var(--color-alert-red);
+  font-weight: 500;
+}
+
+.addGroupContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.addGroupButton {
+  display: flex;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.addGroupPlus {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+
+.addGroupPlus::before,
+.addGroupPlus::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: translate(-50%, -50%);
+}
+
+.addGroupPlus::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.addGroupPlus::after {
+  transform: translate(-50%, -50%) rotate(-90deg);
+}

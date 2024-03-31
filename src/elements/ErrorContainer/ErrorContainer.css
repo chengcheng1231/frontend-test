@@ -1,5 +1,4 @@
 .errorContainer {
-  width: 400px;
   height: 30px;
   background-color: var(--color-alert-light-red);
   border-radius: 6px;

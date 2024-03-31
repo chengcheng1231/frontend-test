@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ErrorContainer from '../../elements/ErrorContainer/ErrorContainer';
 import InputTitle from '../../elements/InputTitle/InputTitle';
+import '../../palette.css';
 import './AgeGroupSelect.css';
 
 const AgeGroupSelect = ({ ageGroup, setAgeGroup, isOverlap }) => {
@@ -42,7 +43,7 @@ const AgeGroupSelect = ({ ageGroup, setAgeGroup, isOverlap }) => {
   };
 
   return (
-    <>
+    <div>
       <InputTitle title="年齡" />
       <div className="ageSelectContainer">
         <select
@@ -65,7 +66,7 @@ const AgeGroupSelect = ({ ageGroup, setAgeGroup, isOverlap }) => {
         </select>
       </div>
       {isOverlap ? <ErrorContainer errorText="年齡區間不可重疊" /> : null}
-    </>
+    </div>
   );
 };
 

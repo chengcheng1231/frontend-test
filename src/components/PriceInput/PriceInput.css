@@ -1,6 +1,5 @@
 .priceInputContainer {
   display: flex;
-  width: 400px;
   height: 56px;
   border-radius: 7px;
 }
@@ -42,7 +41,6 @@
 }
 
 .alertContainer {
-  width: 400px;
   height: 20px;
   background-color: var(--color-alert-light-yellow);
   display: flex;

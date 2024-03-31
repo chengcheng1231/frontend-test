@@ -20,7 +20,7 @@ const PriceInput = ({ value, onChange }) => {
   };
 
   return (
-    <>
+    <div style={{ flex: 1 }}>
       <InputTitle title="入住費用（每人每晚）" />
       <div className="priceInputContainer">
         <div className="priceInputCurrencyContainer">
@@ -43,7 +43,7 @@ const PriceInput = ({ value, onChange }) => {
       <div className="alertContainer">
         <div className="alertText">輸入 0 表示免費</div>
       </div>
-    </>
+    </div>
   );
 };
 

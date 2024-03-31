@@ -1,6 +1,5 @@
 .ageSelectContainer {
   height: 56px;
-  width: 400px;
   display: flex;
   background-color: var(--color-gray-light);
   border-radius: 7px;
